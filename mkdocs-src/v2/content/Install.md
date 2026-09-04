@@ -8,7 +8,7 @@ There are few steps to run Editor.js on your site.
 
 ## Load Editor's core
 
-Firstly you need to get Editor.js itself. It is a [minified script](../dist/editor.js) with minimal available
+Firstly you need to get Editor.js itself. It is a [minified script](../../dist/editor.js) with minimal available
 
 Choose the most usable method of getting an Editor for you.
 
@@ -44,7 +44,7 @@ Then require this script.
 
 ### Save sources to project
 
-Copy [editor.js](../dist/editor.js) file to your project and load it.
+Copy [editor.js](../../dist/editor.js) file to your project and load it.
 
 ```html
 <script src="editor.js"></script>
@@ -52,7 +52,7 @@ Copy [editor.js](../dist/editor.js) file to your project and load it.
 
 ## Load Tools
 
-Each Block at the Editor.js represented by [Tools](tools.md). There are simple external scripts with their own logic. You'll probably want to use several Block Tools that should be connected.
+Each Block at the Editor.js represented by [Tools](Tools.md). There are simple external scripts with their own logic. You'll probably want to use several Block Tools that should be connected.
 
 For example, check out our [Header](https://github.com/editor-js/header) Tool that represents heading blocks.
 
@@ -68,7 +68,7 @@ Check [Editor.js's community](https://github.com/editor-js/) to see Tools exampl
 
 ## Create Editor instance
 
-Create an instance of Editor.js and pass [Configuration Object](../src/types-internal/editor-config.ts).
+Create an instance of Editor.js and pass [Configuration Object](../../src/types-internal/editor-config.ts).
 At least the `holder` option is required.
 
 ```html
@@ -200,4 +200,4 @@ var editor = new EditorJS({
 
 ## Example
 
-Take a look at the [example.html](../example/example.html) to view more detailed examples.
+Take a look at the [example.html](../../example/example.html) to view more detailed examples.

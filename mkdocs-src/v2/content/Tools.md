@@ -14,12 +14,12 @@ Each Tool's instance called with an params object.
 
 | Param  | Type                                                   | Description                                     |
 | ------ | ------------------------------------------------------ | ----------------------------------------------- |
-| api    | [`IAPI`](../types/index.d.ts)                          | Editor.js's API methods                         |
-| config | [`ToolConfig`](../types/tools/tool-config.d.ts)        | Special configuration params passed in «config» |
-| data   | [`BlockToolData`](../types/tools/block-tool-data.d.ts) | Data to be rendered in this Tool                |
-| block  | [`BlockAPI`](../types/api/block.d.ts)                  | Block's API methods                             |
+| api    | [`IAPI`](../../types/index.d.ts)                          | Editor.js's API methods                         |
+| config | [`ToolConfig`](../../types/tools/tool-config.d.ts)        | Special configuration params passed in «config» |
+| data   | [`BlockToolData`](../../types/tools/block-tool-data.d.ts) | Data to be rendered in this Tool                |
+| block  | [`BlockAPI`](../../types/api/block.d.ts)                  | Block's API methods                             |
 
-[iapi-link]: ../src/types-internal/api.ts
+[iapi-link]: ../../src/types-internal/api.ts
 
 #### Example
 
@@ -58,8 +58,8 @@ Options that Tool can specify. All settings should be passed as static propertie
 | -- | -- | -- | -- |
 | `toolbox` | _Object_ | `undefined` | Pass the `icon` and the `title` there to display this `Tool` in the Editor's `Toolbox` <br /> `icon` - HTML string with icon for the Toolbox <br /> `title` - title to be displayed at the Toolbox. <br /><br />May contain an array of `{icon, title, data}` to display the several variants of the tool, for example "Ordered list", "Unordered list". See details at [the documentation](https://editorjs.io/tools-api#toolbox) |
 | `enableLineBreaks` | _Boolean_ | `false` | With this option, Editor.js won't handle Enter keydowns. Can be helpful for Tools like `<code>` where line breaks should be handled by default behaviour. |
-| `isInline` | _Boolean_ | `false` | Describes Tool as a [Tool for the Inline Toolbar](tools-inline.md) |
-| `isTune` | _Boolean_ | `false` | Describes Tool as a [Block Tune](block-tunes.md) |
+| `isInline` | _Boolean_ | `false` | Describes Tool as a [Tool for the Inline Toolbar](ToolsInline.md) |
+| `isTune` | _Boolean_ | `false` | Describes Tool as a [Block Tune](BlockTunes.md) |
 | `sanitize` | _Object_ | `undefined` | Config for automatic sanitizing of saved data. See [Sanitize](#sanitize) section. |
 | `conversionConfig` | _Object_ | `undefined` | Config allows Tool to specify how it can be converted into/from another Tool. See [Conversion config](#conversion-config) section. |
 
@@ -291,7 +291,7 @@ static get pasteConfig {
 
 ## Sanitize <a name="sanitize"></a>
 
-Editor.js provides [API](sanitizer.md) to clean taint strings.
+Editor.js provides [API](Sanitizer.md) to clean taint strings.
 Use it manually at the `save()` method or or pass `sanitizer` config to do it automatically.
 
 ### Sanitizer Configuration
@@ -410,7 +410,7 @@ static get sanitize() {
 
 Editor.js has a Conversion Toolbar that allows user to convert one Block to another.
 
-![](assets/6c1f708b-a30c-4ffd-a427-5b59a1a472e0.jpg)
+![](images/6c1f708b-a30c-4ffd-a427-5b59a1a472e0.jpg)
 
 1. You can add ability to your Tool to be converted. Specify «export» property of `conversionConfig`.
 2. You can add ability to convert other Tools to your Tool. Specify «import» property of `conversionConfig`.

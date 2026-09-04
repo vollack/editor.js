@@ -1,0 +1,2222 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A block-styled editor with clean JSON output (vollack fork).">
+      
+      
+      
+      
+        <link rel="prev" href="Usage.html">
+      
+      
+        <link rel="next" href="ToolsInline.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Tools - Editor.js Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#editorjs-tools" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Editor.js Documentation" class="md-header__button md-logo" aria-label="Editor.js Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Editor.js Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tools
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/vollack/editor.js" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="Install.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Install
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="Usage.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Usage
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="Tools.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Tools
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="ToolsInline.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Inline Tools
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="BlockTunes.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Block Tunes
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="ToolbarSettings.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Toolbar Settings
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="Api.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  API
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="Caret.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Caret
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="Sanitizer.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Sanitizer
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="Releases.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Releases
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Editor.js Documentation" class="md-nav__button md-logo" aria-label="Editor.js Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Editor.js Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/vollack/editor.js" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Install.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Usage.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Usage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="Tools.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tool-class-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tool class structure
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tool class structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constructor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        constructor()
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="constructor()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#render" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        render()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#save" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        save()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validatedata-blocktooldata-booleanpromiseboolean-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        validate(data: BlockToolData): boolean|Promise\&lt;boolean> optional
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#merge-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        merge() optional
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#internal-tool-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Internal Tool Settings
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        User configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tool-prepare-and-reset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tool prepare and reset
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paste-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paste handling
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Paste handling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#html-tags-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTML tags handling
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="HTML tags handling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regexp-patterns-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RegExp patterns handling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#files-pasting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Files pasting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pasted-data-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pasted data handling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disable-paste-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Disable paste handling
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sanitize" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sanitize
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sanitize">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sanitizer-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sanitizer Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sanitizer Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rule
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manual-sanitize" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Manual sanitize
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#automatic-sanitize" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Automatic sanitize
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conversion-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conversion config
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Conversion config">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#your-tool-other-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Your Tool -&gt; other Tool
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-tool-your-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Tool -&gt; your Tool
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#block-lifecycle-hooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Block Lifecycle hooks
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Block Lifecycle hooks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rendered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rendered()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        updated()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        removed()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#movedmoveevent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        moved(MoveEvent)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ToolsInline.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inline Tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="BlockTunes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Block Tunes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ToolbarSettings.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Toolbar Settings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Api.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Caret.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Caret
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Sanitizer.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sanitizer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Releases.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Releases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tool-class-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tool class structure
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tool class structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constructor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        constructor()
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="constructor()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#render" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        render()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#save" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        save()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validatedata-blocktooldata-booleanpromiseboolean-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        validate(data: BlockToolData): boolean|Promise\&lt;boolean> optional
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#merge-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        merge() optional
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#internal-tool-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Internal Tool Settings
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        User configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tool-prepare-and-reset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tool prepare and reset
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paste-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paste handling
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Paste handling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#html-tags-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTML tags handling
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="HTML tags handling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regexp-patterns-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RegExp patterns handling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#files-pasting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Files pasting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pasted-data-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pasted data handling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disable-paste-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Disable paste handling
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sanitize" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sanitize
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sanitize">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sanitizer-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sanitizer Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sanitizer Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rule
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manual-sanitize" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Manual sanitize
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#automatic-sanitize" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Automatic sanitize
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conversion-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conversion config
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Conversion config">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#your-tool-other-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Your Tool -&gt; other Tool
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-tool-your-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Tool -&gt; your Tool
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#block-lifecycle-hooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Block Lifecycle hooks
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Block Lifecycle hooks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rendered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rendered()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        updated()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        removed()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#movedmoveevent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        moved(MoveEvent)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="editorjs-tools">Editor.js Tools<a class="headerlink" href="#editorjs-tools" title="Permanent link">&para;</a></h1>
+<p>Editor.js is a block-oriented editor. It means that entry composed with the list of <code>Blocks</code> of different types: <code>Texts</code>, <code>Headers</code>, <code>Images</code>, <code>Quotes</code> etc.</p>
+<p><code>Tool</code> — is a class that provide custom <code>Block</code> type. All Tools represented by <code>Plugins</code>.</p>
+<p>Each Tool should have an installation guide.</p>
+<h2 id="tool-class-structure">Tool class structure<a class="headerlink" href="#tool-class-structure" title="Permanent link">&para;</a></h2>
+<h3 id="constructor">constructor()<a class="headerlink" href="#constructor" title="Permanent link">&para;</a></h3>
+<p>Each Tool's instance called with an params object.</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>api</td>
+<td><a href="../../types/index.d.ts"><code>IAPI</code></a></td>
+<td>Editor.js's API methods</td>
+</tr>
+<tr>
+<td>config</td>
+<td><a href="../../types/tools/tool-config.d.ts"><code>ToolConfig</code></a></td>
+<td>Special configuration params passed in «config»</td>
+</tr>
+<tr>
+<td>data</td>
+<td><a href="../../types/tools/block-tool-data.d.ts"><code>BlockToolData</code></a></td>
+<td>Data to be rendered in this Tool</td>
+</tr>
+<tr>
+<td>block</td>
+<td><a href="../../types/api/block.d.ts"><code>BlockAPI</code></a></td>
+<td>Block's API methods</td>
+</tr>
+</tbody>
+</table>
+<h4 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kr">constructor</span><span class="p">({</span><span class="nx">data</span><span class="p">,</span><span class="w"> </span><span class="nx">config</span><span class="p">,</span><span class="w"> </span><span class="nx">api</span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">this</span><span class="p">.</span><span class="nx">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">data</span><span class="p">;</span>
+<span class="w">  </span><span class="k">this</span><span class="p">.</span><span class="nx">api</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">api</span><span class="p">;</span>
+<span class="w">  </span><span class="k">this</span><span class="p">.</span><span class="nx">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">config</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// ...</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="render">render()<a class="headerlink" href="#render" title="Permanent link">&para;</a></h3>
+<p>Method that returns Tool's element {HTMLElement} that will be placed into Editor.</p>
+<h3 id="save">save()<a class="headerlink" href="#save" title="Permanent link">&para;</a></h3>
+<p>Process Tool's element created by <code>render()</code> function in DOM and return Block's data.</p>
+<h3 id="validatedata-blocktooldata-booleanpromiseboolean-optional">validate(data: BlockToolData): boolean|Promise\&lt;boolean&gt; <em>optional</em><a class="headerlink" href="#validatedata-blocktooldata-booleanpromiseboolean-optional" title="Permanent link">&para;</a></h3>
+<p>Allows to check correctness of Tool's data. If data didn't pass the validation it won't be saved. Receives Tool's <code>data</code> as input param and returns <code>boolean</code> result of validation.</p>
+<h3 id="merge-optional">merge() <em>optional</em><a class="headerlink" href="#merge-optional" title="Permanent link">&para;</a></h3>
+<p>Method that specifies how to merge two <code>Blocks</code> of the same type, for example on <code>Backspace</code> keypress.
+Method does accept data object in same format as the <code>Render</code> and it should provide logic how to combine new
+data with the currently stored value.</p>
+<h2 id="internal-tool-settings">Internal Tool Settings<a class="headerlink" href="#internal-tool-settings" title="Permanent link">&para;</a></h2>
+<p>Options that Tool can specify. All settings should be passed as static properties of Tool's class.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>toolbox</code></td>
+<td><em>Object</em></td>
+<td><code>undefined</code></td>
+<td>Pass the <code>icon</code> and the <code>title</code> there to display this <code>Tool</code> in the Editor's <code>Toolbox</code> <br /> <code>icon</code> - HTML string with icon for the Toolbox <br /> <code>title</code> - title to be displayed at the Toolbox. <br /><br />May contain an array of <code>{icon, title, data}</code> to display the several variants of the tool, for example "Ordered list", "Unordered list". See details at <a href="https://editorjs.io/tools-api#toolbox">the documentation</a></td>
+</tr>
+<tr>
+<td><code>enableLineBreaks</code></td>
+<td><em>Boolean</em></td>
+<td><code>false</code></td>
+<td>With this option, Editor.js won't handle Enter keydowns. Can be helpful for Tools like <code>&lt;code&gt;</code> where line breaks should be handled by default behaviour.</td>
+</tr>
+<tr>
+<td><code>isInline</code></td>
+<td><em>Boolean</em></td>
+<td><code>false</code></td>
+<td>Describes Tool as a <a href="ToolsInline.html">Tool for the Inline Toolbar</a></td>
+</tr>
+<tr>
+<td><code>isTune</code></td>
+<td><em>Boolean</em></td>
+<td><code>false</code></td>
+<td>Describes Tool as a <a href="BlockTunes.html">Block Tune</a></td>
+</tr>
+<tr>
+<td><code>sanitize</code></td>
+<td><em>Object</em></td>
+<td><code>undefined</code></td>
+<td>Config for automatic sanitizing of saved data. See <a href="#sanitize">Sanitize</a> section.</td>
+</tr>
+<tr>
+<td><code>conversionConfig</code></td>
+<td><em>Object</em></td>
+<td><code>undefined</code></td>
+<td>Config allows Tool to specify how it can be converted into/from another Tool. See <a href="#conversion-config">Conversion config</a> section.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="user-configuration">User configuration<a class="headerlink" href="#user-configuration" title="Permanent link">&para;</a></h2>
+<p>All Tools can be configured by users. You can set up some of available settings along with Tool's class
+to the <code>tools</code> property of Editor Config.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">editor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">EditorJS</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">holder</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">'editorjs'</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">tools</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="kd">class</span><span class="o">:</span><span class="w"> </span><span class="nx">Text</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">inlineToolbar</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="c1">// other settings..</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">header</span><span class="o">:</span><span class="w"> </span><span class="nx">Header</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nx">defaultBlock</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">'text'</span><span class="p">,</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>There are few options available by Editor.js.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>inlineToolbar</code></td>
+<td><em>Boolean/Array</em></td>
+<td><code>false</code></td>
+<td>Pass <code>true</code> to enable the Inline Toolbar with all Tools, or pass an array with specified Tools list</td>
+</tr>
+<tr>
+<td><code>config</code></td>
+<td><em>Object</em></td>
+<td><code>null</code></td>
+<td>User's configuration for Plugin.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="tool-prepare-and-reset">Tool prepare and reset<a class="headerlink" href="#tool-prepare-and-reset" title="Permanent link">&para;</a></h2>
+<p>If you need to prepare some data for Tool (eg. load external script, create HTML nodes in the document, etc) you can use static prepare method.</p>
+<p>It accepts tools config passed on Editor's initialization as an argument:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nx">Tool</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="nx">prepare</span><span class="p">(</span><span class="nx">config</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">loadScript</span><span class="p">();</span>
+<span class="w">    </span><span class="nx">insertNodes</span><span class="p">();</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>On Editor destroy you can use an opposite method <code>reset</code> to clean up all prepared data:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nx">Tool</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="nx">reset</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">cleanUpScripts</span><span class="p">();</span>
+<span class="w">    </span><span class="nx">deleteNodes</span><span class="p">();</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Both methods might be async.</p>
+<h2 id="paste-handling">Paste handling<a class="headerlink" href="#paste-handling" title="Permanent link">&para;</a></h2>
+<p>Editor.js handles paste on Blocks and provides API for Tools to process the pasted data.</p>
+<p>When user pastes content into Editor, pasted content will be splitted into blocks.</p>
+<ol>
+<li>If plain text will be pasted, it will be splitted by new line characters</li>
+<li>If HTML string will be pasted, it will be splitted by block tags</li>
+</ol>
+<p>Also Editor API allows you to define your own pasting scenario. You can either:</p>
+<ol>
+<li>Specify <strong>HTML tags</strong>, that can be represented by your Tool. For example, Image Tool can handle <code>&lt;img&gt;</code> tags.
+If tags you specified will be found on content pasting, your Tool will be rendered.</li>
+<li>Specify <strong>RegExp</strong> for pasted strings. If pattern has been matched, your Tool will be rendered.</li>
+<li>Specify <strong>MIME type</strong> or <strong>extensions</strong> of files that can be handled by your Tool on pasting by drag-n-drop or from clipboard.</li>
+</ol>
+<p>For each scenario, you should do 2 next things:</p>
+<ol>
+<li>Define static getter <code>pasteConfig</code> in Tool class. Specify handled patterns there.</li>
+<li>Define public method <code>onPaste</code> that will handle PasteEvent to process pasted data.</li>
+</ol>
+<h3 id="html-tags-handling">HTML tags handling<a class="headerlink" href="#html-tags-handling" title="Permanent link">&para;</a></h3>
+<p>To handle pasted HTML elements object returned from <code>pasteConfig</code> getter should contain following field:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>tags</code></td>
+<td><code>String[]</code></td>
+<td><em>Optional</em>. Should contain all tag names you want to be extracted from pasted data and processed by your <code>onPaste</code> method</td>
+</tr>
+</tbody>
+</table>
+<p>For correct work you MUST provide <code>onPaste</code> handler at least for <code>defaultBlock</code> Tool.</p>
+<h4 id="example_1">Example<a class="headerlink" href="#example_1" title="Permanent link">&para;</a></h4>
+<p>Header Tool can handle <code>H1</code>-<code>H6</code> tags using paste handling API</p>
+<div class="highlight"><pre><span></span><code><span class="k">static</span><span class="w"> </span><span class="nx">get</span><span class="w"> </span><span class="nx">pasteConfig</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">tags</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">'H1'</span><span class="p">,</span><span class="w"> </span><span class="s1">'H2'</span><span class="p">,</span><span class="w"> </span><span class="s1">'H3'</span><span class="p">,</span><span class="w"> </span><span class="s1">'H4'</span><span class="p">,</span><span class="w"> </span><span class="s1">'H5'</span><span class="p">,</span><span class="w"> </span><span class="s1">'H6'</span><span class="p">],</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>Note. Same tag can be handled by one (first specified) Tool only.</strong></p>
+<p><strong>Note. All attributes of pasted tag will be removed. To leave some attribute, you should explicitly specify them. Se below</strong></p>
+<p>Let's suppose you want to leave the 'src' attribute when handle pasting of the <code>img</code> tags. Your config should look like this:</p>
+<div class="highlight"><pre><span></span><code><span class="k">static</span><span class="w"> </span><span class="nx">get</span><span class="w"> </span><span class="nx">pasteConfig</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">tags</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">img</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nx">src</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><a href="https://editorjs.io/sanitizer">Read more</a> about the sanitizing configuration.</p>
+<h3 id="regexp-patterns-handling">RegExp patterns handling<a class="headerlink" href="#regexp-patterns-handling" title="Permanent link">&para;</a></h3>
+<p>Your Tool can analyze text by RegExp patterns to substitute pasted string with data you want. Object returned from <code>pasteConfig</code> getter should contain following field to use patterns:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>patterns</code></td>
+<td><code>Object</code></td>
+<td><em>Optional</em>. <code>patterns</code> object contains RegExp patterns with their names as object's keys</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong> Editor will check pattern's full match, so don't forget to handle all available chars in there.</p>
+<p>Pattern will be processed only if paste was on <code>defaultBlock</code> Tool and pasted string length is less than 450 characters.</p>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<p>You can handle YouTube links and insert embeded video instead:</p>
+<div class="highlight"><pre><span></span><code><span class="k">static</span><span class="w"> </span><span class="nx">get</span><span class="w"> </span><span class="nx">pasteConfig</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">patterns</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">youtube</span><span class="o">:</span><span class="w"> </span><span class="sr">/http(?:s?):\/\/(?:www\.)?youtu(?:be\.com\/watch\?v=|\.be\/)([\w\-\_]*)(&amp;(amp;)?[\w\?‌​=]*)?/</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="files-pasting">Files pasting<a class="headerlink" href="#files-pasting" title="Permanent link">&para;</a></h3>
+<p>Your Tool can handle files pasted or dropped into the Editor.</p>
+<p>To handle file you should provide <code>files</code>  property in your <code>pasteConfig</code> configuration object.</p>
+<p><code>files</code> property is an object with the following fields:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>extensions</code></td>
+<td><code>string[]</code></td>
+<td><em>Optional</em> Array of extensions your Tool can handle</td>
+</tr>
+<tr>
+<td><code>mimeTypes</code></td>
+<td><code>sring[]</code></td>
+<td><em>Optional</em> Array of MIME types your Tool can handle</td>
+</tr>
+</tbody>
+</table>
+<p>Example</p>
+<div class="highlight"><pre><span></span><code><span class="k">static</span><span class="w"> </span><span class="nx">get</span><span class="w"> </span><span class="nx">pasteConfig</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">files</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">mimeTypes</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">'image/png'</span><span class="p">],</span>
+<span class="w">      </span><span class="nx">extensions</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">'json'</span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="pasted-data-handling">Pasted data handling<a class="headerlink" href="#pasted-data-handling" title="Permanent link">&para;</a></h3>
+<p>If you registered some paste substitutions in <code>pasteConfig</code> property, you <strong>should</strong> provide <code>onPaste</code> callback in your Tool class.
+<code>onPaste</code> should be public non-static method. It accepts custom <em>PasteEvent</em> object as argument.</p>
+<p>PasteEvent is an alias for three types of events - <code>tag</code>, <code>pattern</code> and <code>file</code>. You can get the type from <em>PasteEvent</em> object's <code>type</code> property.
+Each of these events provide <code>detail</code> property with info about pasted content.</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>tag</code></td>
+<td><code>data</code> - pasted HTML element</td>
+</tr>
+<tr>
+<td><code>pattern</code></td>
+<td><code>key</code> - matched pattern key you specified in <code>pasteConfig</code> object <br /> <code>data</code> - pasted string</td>
+</tr>
+<tr>
+<td><code>file</code></td>
+<td><code>file</code> - pasted file</td>
+</tr>
+</tbody>
+</table>
+<p>Example</p>
+<div class="highlight"><pre><span></span><code><span class="nx">onPaste</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">type</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="s1">'tag'</span><span class="o">:</span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">element</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">event</span><span class="p">.</span><span class="nx">detail</span><span class="p">.</span><span class="nx">data</span><span class="p">;</span>
+
+<span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="nx">handleHTMLPaste</span><span class="p">(</span><span class="nx">element</span><span class="p">);</span>
+<span class="w">      </span><span class="k">break</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="s1">'pattern'</span><span class="o">:</span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">event</span><span class="p">.</span><span class="nx">detail</span><span class="p">.</span><span class="nx">data</span><span class="p">;</span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">event</span><span class="p">.</span><span class="nx">detail</span><span class="p">.</span><span class="nx">key</span><span class="p">;</span>
+
+<span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="nx">handlePatternPaste</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span><span class="w"> </span><span class="nx">text</span><span class="p">);</span>
+<span class="w">      </span><span class="k">break</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="s1">'file'</span><span class="o">:</span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">event</span><span class="p">.</span><span class="nx">detail</span><span class="p">.</span><span class="nx">file</span><span class="p">;</span>
+
+<span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="nx">handleFilePaste</span><span class="p">(</span><span class="nx">file</span><span class="p">);</span>
+<span class="w">      </span><span class="k">break</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="disable-paste-handling">Disable paste handling<a class="headerlink" href="#disable-paste-handling" title="Permanent link">&para;</a></h3>
+<p>If you need to disable paste handling on your Tool for some reason, you can provide <code>false</code> as <code>pasteConfig</code> value.
+That way paste event won't be processed if fired on your Tool:</p>
+<div class="highlight"><pre><span></span><code><span class="k">static</span><span class="w"> </span><span class="nx">get</span><span class="w"> </span><span class="nx">pasteConfig</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="sanitize">Sanitize <a name="sanitize"></a><a class="headerlink" href="#sanitize" title="Permanent link">&para;</a></h2>
+<p>Editor.js provides <a href="Sanitizer.html">API</a> to clean taint strings.
+Use it manually at the <code>save()</code> method or or pass <code>sanitizer</code> config to do it automatically.</p>
+<h3 id="sanitizer-configuration">Sanitizer Configuration<a class="headerlink" href="#sanitizer-configuration" title="Permanent link">&para;</a></h3>
+<p>The example of sanitizer configuration</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">sanitizerConfig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">b</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="c1">// leave &lt;b&gt;</span>
+<span class="w">  </span><span class="nx">p</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="c1">// leave &lt;p&gt;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Keys of config object is tags and the values is a rules.</p>
+<h4 id="rule">Rule<a class="headerlink" href="#rule" title="Permanent link">&para;</a></h4>
+<p>Rule can be boolean, object or function. Object is a dictionary of rules for tag's attributes.</p>
+<p>You can set <code>true</code>, to allow tag with all attributes or <code>false|{}</code> to remove all attributes,
+but leave tag.</p>
+<p>Also you can pass special attributes that you want to leave.</p>
+<div class="highlight"><pre><span></span><code><span class="nx">a</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">href</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>If you want to use a custom handler, use should specify a function
+that returns a rule.</p>
+<div class="highlight"><pre><span></span><code><span class="nx">b</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">el</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="o">!</span><span class="nx">el</span><span class="p">.</span><span class="nx">textContent</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="s1">'bad text'</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>or</p>
+<div class="highlight"><pre><span></span><code><span class="nx">a</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">el</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">anchorHref</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">el</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s1">'href'</span><span class="p">);</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">anchorHref</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">anchorHref</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">)</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">'http'</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">href</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="s1">'_blank'</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">href</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="manual-sanitize">Manual sanitize<a class="headerlink" href="#manual-sanitize" title="Permanent link">&para;</a></h3>
+<p>Call API method <code>sanitizer.clean()</code> at the save method for each field in returned data.</p>
+<div class="highlight"><pre><span></span><code><span class="nx">save</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">sanitizer</span><span class="p">.</span><span class="nx">clean</span><span class="p">(</span><span class="nx">taintString</span><span class="p">,</span><span class="w"> </span><span class="nx">sanitizerConfig</span><span class="p">)</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="automatic-sanitize">Automatic sanitize<a class="headerlink" href="#automatic-sanitize" title="Permanent link">&para;</a></h3>
+<p>If you pass the sanitizer config as static getter, Editor.js will automatically sanitize your saved data.</p>
+<p>Note that if your Tool is allowed to use the Inline Toolbar, we will get sanitizing rules for each Inline Tool
+and merge with your passed config.</p>
+<p>You can define rules for each field</p>
+<div class="highlight"><pre><span></span><code><span class="k">static</span><span class="w"> </span><span class="nx">get</span><span class="w"> </span><span class="nx">sanitize</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="p">{},</span>
+<span class="w">    </span><span class="nx">items</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">b</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="c1">// leave &lt;b&gt;</span>
+<span class="w">      </span><span class="nx">a</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="c1">// remove &lt;a&gt;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Don't forget to set the rule for each embedded subitems otherwise they will
+not be sanitized.</p>
+<p>if you want to sanitize everything and get data without any tags, use <code>{}</code> or just
+ignore field in case if you want to get pure HTML</p>
+<div class="highlight"><pre><span></span><code><span class="k">static</span><span class="w"> </span><span class="nx">get</span><span class="w"> </span><span class="nx">sanitize</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="p">{},</span>
+<span class="w">    </span><span class="nx">items</span><span class="o">:</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="c1">// this rules will be used for all properties of this object</span>
+<span class="w">    </span><span class="c1">// or</span>
+<span class="w">    </span><span class="nx">items</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// other objects here won't be sanitized</span>
+<span class="w">      </span><span class="nx">subitems</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// leave &lt;a&gt; and &lt;b&gt; in subitems</span>
+<span class="w">        </span><span class="nx">a</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">b</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="conversion-config">Conversion config <a name="conversion-config"></a><a class="headerlink" href="#conversion-config" title="Permanent link">&para;</a></h2>
+<p>Editor.js has a Conversion Toolbar that allows user to convert one Block to another.</p>
+<p><img alt="" src="images/6c1f708b-a30c-4ffd-a427-5b59a1a472e0.jpg" /></p>
+<ol>
+<li>You can add ability to your Tool to be converted. Specify «export» property of <code>conversionConfig</code>.</li>
+<li>You can add ability to convert other Tools to your Tool. Specify «import» property of <code>conversionConfig</code>.</li>
+</ol>
+<p>Conversion Toolbar will be shown only near Blocks that specified an «export» rule, when user selected almost all block's content.
+This Toolbar will contain only Tools that specified an «import» rule.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nx">Header</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kr">constructor</span><span class="p">(){</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">       </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="s1">''</span><span class="p">,</span>
+<span class="w">       </span><span class="nx">level</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="cm">/**</span>
+<span class="cm">   * Rules specified how our Tool can be converted to/from other Tool.</span>
+<span class="cm">   */</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="nx">get</span><span class="w"> </span><span class="nx">conversionConfig</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">export</span><span class="o">:</span><span class="w"> </span><span class="s1">'text'</span><span class="p">,</span><span class="w"> </span><span class="c1">// this property of tool data will be used as string to pass to other tool</span>
+<span class="w">      </span><span class="k">import</span><span class="o">:</span><span class="w"> </span><span class="s1">'text'</span><span class="w"> </span><span class="c1">// to this property imported string will be passed</span>
+<span class="w">    </span><span class="p">};</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="your-tool-other-tool">Your Tool -&gt; other Tool<a class="headerlink" href="#your-tool-other-tool" title="Permanent link">&para;</a></h3>
+<p>The «export» field specifies how to represent your Tool's data as a string to pass it to other tool.</p>
+<p>It can be a <code>String</code> or a <code>Function</code>.</p>
+<p><code>String</code> means a key of your Tool data object that should be used as string to export.</p>
+<p><code>Function</code> is a method that accepts your Tool data and compose a string to export from it. See example below:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nx">ListTool</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kr">constructor</span><span class="p">(){</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">items</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s1">'Fisrt item'</span><span class="p">,</span>
+<span class="w">        </span><span class="s1">'Second item'</span><span class="p">,</span>
+<span class="w">        </span><span class="s1">'Third item'</span>
+<span class="w">      </span><span class="p">],</span>
+<span class="w">      </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">'ordered'</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="nx">get</span><span class="w"> </span><span class="nx">conversionConfig</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">export</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">data</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">'.'</span><span class="p">);</span><span class="w"> </span><span class="c1">// in this example, all list items will be concatenated to an export string</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="c1">// ... import rule</span>
+<span class="w">    </span><span class="p">};</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="other-tool-your-tool">Other Tool -&gt; your Tool<a class="headerlink" href="#other-tool-your-tool" title="Permanent link">&para;</a></h3>
+<p>The «import» rule specifies how to create your Tool's data object from the string created by original block.</p>
+<p>It can be a <code>String</code> or a <code>Function</code>.</p>
+<p><code>String</code> means the key in tool data that will be filled by an exported string.
+For example, <code>import: 'text'</code> means that <code>constructor</code> of your block will accept a <code>data</code> object with <code>text</code> property filled with string composed by original block.</p>
+<p><code>Function</code> allows you to specify own logic, how a string should be converted to your tool data. For example:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nx">ListTool</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">items</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">      </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">'unordered'</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="nx">get</span><span class="w"> </span><span class="nx">conversionConfig</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// ... export rule</span>
+
+<span class="w">      </span><span class="cm">/**</span>
+<span class="cm">       * In this example, List Tool creates items by splitting original text by a dot symbol.</span>
+<span class="cm">       */</span>
+<span class="w">      </span><span class="k">import</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">string</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">items</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">string</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">'.'</span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nx">items</span><span class="o">:</span><span class="w"> </span><span class="nx">items</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nx">text</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">text</span><span class="p">.</span><span class="nx">trim</span><span class="p">()</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="s1">''</span><span class="p">),</span>
+<span class="w">          </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">'unordered'</span>
+<span class="w">        </span><span class="p">};</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">};</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="block-lifecycle-hooks">Block Lifecycle hooks<a class="headerlink" href="#block-lifecycle-hooks" title="Permanent link">&para;</a></h2>
+<h3 id="rendered"><code>rendered()</code><a class="headerlink" href="#rendered" title="Permanent link">&para;</a></h3>
+<p>Called after Block contents is added to the page</p>
+<h3 id="updated"><code>updated()</code><a class="headerlink" href="#updated" title="Permanent link">&para;</a></h3>
+<p>Called each time Block contents is updated</p>
+<h3 id="removed"><code>removed()</code><a class="headerlink" href="#removed" title="Permanent link">&para;</a></h3>
+<p>Called after Block contents is removed from the page but before Block instance deleted</p>
+<h3 id="movedmoveevent"><code>moved(MoveEvent)</code><a class="headerlink" href="#movedmoveevent" title="Permanent link">&para;</a></h3>
+<p>Called after Block was moved. <code>MoveEvent</code> contains <code>fromIndex</code> and <code>toIndex</code>
+respectively.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "content.code.copy", "search.suggest"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

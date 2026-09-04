@@ -33,7 +33,7 @@ renderSettings() {
 
 For custom controls, `renderSettings()` can still return an `HTMLElement`.
 When using custom HTML, the Tool is responsible for rendering the controls and
-handling their events. For more information, read [Tools](tools.md).
+handling their events. For more information, read [Tools](Tools.md).
 
 ---
 
@@ -49,7 +49,7 @@ No restrictions. Handle user action by yourself
 Create Class that implements block-tune.ts
 
 Your Tune's constructor gets argument as object and it includes:
- - {Object} api - object contains public methods from modules. @see [API](api.md)
+ - {Object} api - object contains public methods from modules. @see [API](Api.md)
  - {Object} settings - settings contains block default state.
 This object could have information about cover, anchor and so on.
 

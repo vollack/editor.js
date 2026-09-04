@@ -19,4 +19,3 @@ clean(taintString, customConfig)
 | -------------|------ |:-------------:|
 | taintString  | String | string that needs to be cleaned|
 | customConfig | Object | Can be passed new config per usage (Default: uses default configuration)|
-

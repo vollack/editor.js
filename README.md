@@ -10,8 +10,8 @@
 
 <p align="center">
  <a href="https://editorjs.io/">editorjs.io</a> |
-  <a href="https://editorjs.io/base-concepts/">documentation</a> |
-  <a href="https://github.com/codex-team/editor.js/blob/next/docs/CHANGELOG.md">changelog</a>
+  <a href="docs/v2/index.html">documentation</a> |
+  <a href="docs/CHANGELOG.md">changelog</a>
   
 </p>
 
@@ -45,6 +45,27 @@ Editor.js outputs a clean JSON data instead of heavy HTML markup. Use it in Web,
 <picture>
   <img alt="Editor.js Overview" src="./assets/overview.png">
 </picture>   
+
+## Documentation
+
+Documentation for this fork (install, usage, tools, inline tools, block tunes, toolbar settings,
+API, caret, sanitizer, releases) is built with [MkDocs](https://www.mkdocs.org/) +
+[Material](https://squidfunk.github.io/mkdocs-material/):
+
+| Source | Built output |
+| --- | --- |
+| `mkdocs-src/v2/` | [`docs/v2/index.html`](docs/v2/index.html) |
+
+After editing a page under `mkdocs-src/v2/content/`, rebuild before committing (pinned to a fixed
+MkDocs/Material version via `requirements.txt`):
+
+```bash
+pip install -r mkdocs-src/v2/requirements.txt   # once
+cd mkdocs-src/v2 && mkdocs build
+```
+
+> The upstream project's own hosted docs (<https://editorjs.io/>) track upstream's code, not this
+> fork's — this in-repo copy is authoritative for this fork going forward.
 
 ## Installation
 

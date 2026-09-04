@@ -1,6 +1,6 @@
 # Tools for the Inline Toolbar
 
-Similar with [Tools](tools.md) represented Blocks, you can create Tools for the Inline Toolbar. It will work with 
+Similar with [Tools](Tools.md) represented Blocks, you can create Tools for the Inline Toolbar. It will work with 
 selected fragment of text. The simplest example is `bold` or `italic` Tools.
 
 ## Base structure
@@ -19,7 +19,7 @@ Also, you can provide optional methods
 - `clear()` — clear Tool's stuff on opening/closing of Inline Toolbar
 - `sanitize()` — sanitizer configuration
 
-At the constructor of Tool's class exemplar you will accept an object with the [API](api.md) as a parameter.
+At the constructor of Tool's class exemplar you will accept an object with the [API](Api.md) as a parameter.
 
 ---
 
@@ -122,7 +122,7 @@ static get sanitize() {
 }
 ``` 
 
-Read more about Sanitizer configuration at the [Tools#sanitize](tools.md#sanitize)
+Read more about Sanitizer configuration at the [Tools#sanitize](Tools.md#sanitize)
 
 ### Specifying a title
 

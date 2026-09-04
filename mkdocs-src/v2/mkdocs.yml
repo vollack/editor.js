@@ -1,0 +1,51 @@
+site_name: Editor.js Documentation
+site_description: A block-styled editor with clean JSON output (vollack fork).
+repo_url: https://github.com/vollack/editor.js
+docs_dir: content
+site_dir: ../../docs/v2
+use_directory_urls: false
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+    - search.suggest
+
+plugins:
+  - search:
+      lang: en
+
+nav:
+  - Home: index.md
+  - Install: Install.md
+  - Usage: Usage.md
+  - Tools: Tools.md
+  - Inline Tools: ToolsInline.md
+  - Block Tunes: BlockTunes.md
+  - Toolbar Settings: ToolbarSettings.md
+  - API: Api.md
+  - Caret: Caret.md
+  - Sanitizer: Sanitizer.md
+  - Releases: Releases.md
+
+markdown_extensions:
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.inlinehilite

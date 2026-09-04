@@ -4,9 +4,9 @@
 
 Editor.js is a Block-Styled editor. Blocks is a structural units, of which the Entry is composed. 
 For example, `Paragraph`, `Heading`, `Image`, `Video`, `List` are Blocks. Each Block is represented by a Plugin. 
-We have [many](http://github.com/editor-js/) ready-to-use Plugins and the [simple API](tools.md) for creation new ones.
+We have [many](http://github.com/editor-js/) ready-to-use Plugins and the [simple API](Tools.md) for creation new ones.
 
-So how to use the Editor after [Installation](installation.md).
+So how to use the Editor after [Installation](Install.md).
 
 - Create new Blocks by Enter or with the Plus Button
 - Press `TAB` or click on the Plus Button to view the Toolbox
@@ -17,12 +17,12 @@ So how to use the Editor after [Installation](installation.md).
  
 - Select text fragment and apply a style or insert a link from the Inline Toolbar
 
-![](assets/7ccbcfcd-1c49-4674-bea7-71021468a1bd.jpg)
+![](images/7ccbcfcd-1c49-4674-bea7-71021468a1bd.jpg)
 
 - Use «three-dots» button on the right to open Block Settings. From here, you can move and delete a Block 
 or apply Tool's settings, if it provided. For example, set a Heading level or List style.
 
-![](assets/01a55381-46cd-47c7-b92e-34765434f2ca.jpg)   
+![](images/01a55381-46cd-47c7-b92e-34765434f2ca.jpg)   
 
 ## Shortcuts
 
@@ -124,4 +124,3 @@ Possible values:
 | `INFO`    | Show info and debug messages |
 | `WARN`    | Show errors and warns only   |
 | `ERROR`   | Show errors only             |
-  

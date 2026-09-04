@@ -1,6 +1,6 @@
 # Block Tunes
 
-Similar with [Tools](tools.md) represented Blocks, you can create Block Tunes and connect it to particular Tool or for all Tools.
+Similar with [Tools](Tools.md) represented Blocks, you can create Block Tunes and connect it to particular Tool or for all Tools.
 
 Block Tunes allows you to set any additional options to Blocks. For example, with corresponded Block Tunes you can mark Block as «spoiler», give it an anchor, set a background, and so on.
 
@@ -21,9 +21,9 @@ At the constructor of Tune's class exemplar you will receive an object with foll
 
 | Parameter | Description |
 | --------- | ----------- |
-| api  | Editor's [API](api.md) obejct |
+| api  | Editor's [API](Api.md) obejct |
 | config | Configuration of Block Tool Tune is connected to (might be useful in some cases) |
-| block | [Block API](api.md#block-api) methods for block Tune is connected to |
+| block | [Block API](Api.md#block-api) methods for block Tune is connected to |
 | data | Saved Tune data |
 
 ---
@@ -149,7 +149,7 @@ No return value
 
 If your Tune inserts any HTML markup into Block's content you need to provide sanitize configuration, so your HTML is not trimmed on save.
 
-Please see more information at [sanitizer page](sanitizer.md).
+Please see more information at [sanitizer page](Sanitizer.md).
 
 
 ```javascript

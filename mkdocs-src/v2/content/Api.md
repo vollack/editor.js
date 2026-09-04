@@ -1,7 +1,7 @@
 # Editor.js API
 
 ---
-Most actual API described by [this interface](../types/api/index.d.ts).
+Most actual API described by [this interface](../../types/api/index.d.ts).
 
 ---
 📃 See official API documentation [https://editorjs.io/api](https://editorjs.io/api)
@@ -13,7 +13,7 @@ can use Editor\`s API as they want.
 
 ## Block API
 
-API for certain Block methods and properties. You can access it through `editor.api.block.getBlockByIndex` method or get it form `block` property of [Tool constructor](../types/tools/block-tool.d.ts) argument.
+API for certain Block methods and properties. You can access it through `editor.api.block.getBlockByIndex` method or get it form `block` property of [Tool constructor](../../types/tools/block-tool.d.ts) argument.
 
 `name: string` — Block's Tool name (key, specified in `tools` property of initial configuration)
 
@@ -29,7 +29,7 @@ API for certain Block methods and properties. You can access it through `editor.
 
 `stretched: boolean` — `true` if Block is stretched
 
-`call(methodName: string, param?: object): void` — method to call any Tool's instance methods with checks and error handlers under-the-hood. For example, [Block lifecycle hooks](./tools.md#block-lifecycle-hooks)
+`call(methodName: string, param?: object): void` — method to call any Tool's instance methods with checks and error handlers under-the-hood. For example, [Block lifecycle hooks](Tools.md#block-lifecycle-hooks)
 
 `save(): Promise<void|SavedData>` — returns data saved from current Block's state, including Tool name and saving exec time
 
@@ -180,7 +180,7 @@ this.api.notifier.show({
 });
 ```
 
-![](assets/14fcdbe4-d6eb-41d4-b66e-e0e86ccf1a4b.jpg)
+![](images/14fcdbe4-d6eb-41d4-b66e-e0e86ccf1a4b.jpg)
 
 
 Check out [`codex-notifier` package page](https://github.com/codex-team/js-notifier) on GitHub to find docs, params and examples.
@@ -264,4 +264,3 @@ const editor = EditorJS();
 editor.focus();
 editor.save();
 ```
-
