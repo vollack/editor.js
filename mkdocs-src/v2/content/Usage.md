@@ -4,9 +4,9 @@
 
 <iframe src="demo.html" title="Editor.js live example" style="width: 100%; max-width: 40rem; height: 20rem; border: 1px solid var(--md-default-fg-color--lightest); border-radius: .25rem;"></iframe>
 
-Click into the block above and start typing, or press `Enter` for a new block. This runs the
-`dist/editorjs.umd.js` build produced by `npm run build` (source: [`demo.html`](demo.html)), not a
-copy — build the project first if the block above is empty.
+Click into the block above and start typing, or press `Enter` for a new block. This loads
+`dist/editorjs.umd.js` straight from this fork's `v2.31.6` tag via jsDelivr's GitHub CDN (source:
+[`demo.html`](demo.html)) — this fork's own build, not the upstream npm package.
 
 ## Basics
 
