@@ -1,5 +1,13 @@
 # So how to use Editor.js
 
+## Live example
+
+<iframe src="demo.html" title="Editor.js live example" style="width: 100%; max-width: 40rem; height: 20rem; border: 1px solid var(--md-default-fg-color--lightest); border-radius: .25rem;"></iframe>
+
+Click into the block above and start typing, or press `Enter` for a new block. This runs the
+`dist/editorjs.umd.js` build produced by `npm run build` (source: [`demo.html`](demo.html)), not a
+copy — build the project first if the block above is empty.
+
 ## Basics
 
 Editor.js is a Block-Styled editor. Blocks is a structural units, of which the Entry is composed. 

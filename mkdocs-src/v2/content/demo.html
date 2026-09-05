@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      margin: 0;
+      padding: 1.5rem;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    #editorjs {
+      border: 1px solid #e8e8eb;
+      border-radius: .25rem;
+      padding: 0 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div id="editorjs"></div>
+
+  <script src="../../dist/editorjs.umd.js"></script>
+  <script>
+    var editor = new EditorJS({
+      holder: 'editorjs',
+      placeholder: 'Type something…',
+      data: {
+        blocks: [
+          {
+            type: 'paragraph',
+            data: {
+              text: 'This is Editor.js — try editing this text, press Enter for a new block.'
+            }
+          }
+        ]
+      }
+    });
+  </script>
+</body>
+</html>
