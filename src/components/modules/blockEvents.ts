@@ -244,18 +244,10 @@ export default class BlockEvents extends Module {
     }
 
     const currentBlock = this.Editor.BlockManager.currentBlock;
-    const canOpenToolbox = currentBlock.isEmpty;
 
     /**
      * @todo Handle case when slash pressed when several blocks are selected
      */
-
-    /**
-     * Toolbox will be opened only if Block is empty
-     */
-    if (!canOpenToolbox) {
-      return;
-    }
 
     /**
      * The Toolbox will be opened with immediate focus on the Search input,
@@ -264,7 +256,58 @@ export default class BlockEvents extends Module {
     event.preventDefault();
     this.Editor.Caret.insertContentAtCaretPosition('/');
 
+    /**
+     * Remember where the '/' trigger character landed so it can be stripped back out
+     * once the Toolbox closes (on selection or cancellation). Only needed when the Block
+     * is not empty: an empty Block gets replaced wholesale on selection, so its stray '/'
+     * disappears along with it automatically.
+     */
+    if (!currentBlock.isEmpty) {
+      const [triggerNode, triggerOffset] = caretUtils.getCaretNodeAndOffset();
+
+      this.Editor.Toolbar.toolbox.onceClosed(() => {
+        this.removeInlineSlashTrigger(currentBlock, triggerNode, triggerOffset);
+      });
+    }
+
     this.activateToolbox();
+  }
+
+  /**
+   * Removes the '/' character inserted by slashPressed() to trigger the Toolbox inline,
+   * unless the Block that held it was replaced in the meantime (Toolbox item picked on an
+   * originally empty Block — nothing to clean up there, the old Block is already gone).
+   *
+   * @param block - Block the '/' was inserted into
+   * @param node - text node the '/' was inserted into, captured right after insertion
+   * @param offset - caret offset right after the inserted '/' inside that node
+   */
+  private removeInlineSlashTrigger(block: Block, node: Node | null, offset: number): void {
+    if (!block.holder.isConnected) {
+      return;
+    }
+
+    if (node === null || node.nodeType !== Node.TEXT_NODE || !block.holder.contains(node)) {
+      return;
+    }
+
+    const text = node.textContent ?? '';
+
+    if (text[offset - 1] !== '/') {
+      return;
+    }
+
+    node.textContent = text.slice(0, offset - 1) + text.slice(offset);
+
+    const range = document.createRange();
+
+    range.setStart(node, offset - 1);
+    range.collapse(true);
+
+    const selection = window.getSelection();
+
+    selection?.removeAllRanges();
+    selection?.addRange(range);
   }
 
   /**

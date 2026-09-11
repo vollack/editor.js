@@ -1,5 +1,9 @@
 # Changelog
 
+### 2.32.0
+
+- `New` - Typing `/` inside any Block now opens the Toolbox inline, filtered live as you keep typing, matching the slash-command menu popularized by Notion/BlockNote. Previously this only worked on an empty Block.
+
 ### 2.31.6
 
 - `Fix` - Widen `sanitize` type on `BlockTool` and `BaseToolConstructable` to accept per-field `SanitizerConfig`

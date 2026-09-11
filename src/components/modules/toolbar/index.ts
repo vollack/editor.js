@@ -157,11 +157,15 @@ export default class Toolbar extends Module<ToolbarNodes> {
     open: () => void;
     toggle: () => void;
     hasFocus: () => boolean | undefined;
+    onceClosed: (callback: () => void) => void;
     } {
     return {
       opened: this.toolboxInstance?.opened,
       close: () => {
         this.toolboxInstance?.close();
+      },
+      onceClosed: (callback: () => void) => {
+        this.toolboxInstance?.once(ToolboxEvent.Closed, callback);
       },
       open: () => {
         /**
